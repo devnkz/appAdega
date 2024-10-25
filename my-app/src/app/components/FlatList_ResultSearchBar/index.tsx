@@ -33,7 +33,7 @@ export function Results_SeachBar({ results }) {
                                 <Text>{item.tipo}</Text>
                                 <Text>{item.modelo}</Text>
                                 <Text>{item.tamanho}</Text>
-                                <Text className='text-3xl font-light text-green-600'>R$ {item.preco}</Text>
+                                <Text className='text-3xl font-light text-green-600'>R$ {item.quantidade}</Text>
 
                                 <Pressable onPress={() => console.log(addToCart(item))} style={{ elevation: 5 }} className='flex flex-row items-center gap-2 w-36 justify-center rounded-lg p-2 bg-black mt-4'>
                                     <Feather name={'shopping-bag'} size={24} color={'white'} />
@@ -42,7 +42,7 @@ export function Results_SeachBar({ results }) {
                             </View>
                             <View>
                                 <Image
-                                    source={{ uri: item.url_image }}
+                                    source={{ uri: item.url_img }}
                                     className='h-52 w-24'
                                 />
                             </View>

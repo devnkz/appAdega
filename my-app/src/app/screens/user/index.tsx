@@ -35,7 +35,7 @@ export default function User() {
     };
 
     const removeItemFromCart = (id: number) => {
-        const newCart = updatedCartItems.filter(item => item.id !== id);
+        const newCart = updatedCartItems.filter(item => item.id_produto !== id);
         setUpdatedCartItems(newCart);
     };
 
@@ -49,7 +49,7 @@ export default function User() {
             <BagProvider>
                 <SafeAreaProvider>
                     <SafeAreaView style={{ flex: 1, backgroundColor: '#d3d3d3' }}>
-                        <ButtonPay valorItem={cartItems.reduce((total, item) => total + (item.preco * (quantidades[item.id] || 1.)), 0).toFixed(2)} />
+                        <ButtonPay valorItem={cartItems.reduce((total, item) => total + (item.quantidade * (quantidades[item.id_produto] || 1.)), 0).toFixed(2)} />
                         <ScrollView>
                             <View className='w-full items-center h-36 justify-center flex-row gap-4'>
                                 <TouchableOpacity onPress={handleLogin}>
@@ -60,35 +60,35 @@ export default function User() {
                                 <Text className='text-3xl font-semibold'>Seu carrinho</Text>
                             </View>
                             {cartItems.map((item) => {
-                                const quantidade = quantidades[item.id] || 1;
+                                const quantidade = quantidades[item.id_produto] || 1;
                                 return (
-                                    <View className='w-full items-center mt-4' key={item.id}>
+                                    <View className='w-full items-center mt-4' key={item.id_produto}>
                                         <View className='w-11/12 flex flex-row justify-between bg-white p-3 rounded-lg items-center' style={{ elevation: 10 }}>
                                             <View>
                                                 <Text className='text-3xl font-bold'>{item.nome}</Text>
                                                 <Text>{item.tipo}</Text>
                                                 <Text>{item.modelo}</Text>
                                                 <Text>{item.tamanho}</Text>
-                                                <Text className='text-3xl font-light text-green-600'>R$ {item.preco}</Text>
+                                                <Text className='text-3xl font-light text-green-600'>R$ {item.quantidade}</Text>
 
                                                 <View className='flex flex-row items-center gap-2'>
                                                     <Pressable
-                                                        onPress={() => removeQuantity(item.id)}
+                                                        onPress={() => removeQuantity(item.id_produto)}
                                                         className='bg-black rounded-lg w-8 h-8 items-center justify-center'>
                                                         <Feather name={'minus'} size={24} color={'#FFF'} />
                                                     </Pressable>
                                                     <Text className='text-3xl'>{quantidade}</Text>
                                                     <Pressable
-                                                        onPress={() => addQuantity(item.id)}
+                                                        onPress={() => addQuantity(item.id_produto)}
                                                         className='bg-black rounded-lg w-8 h-8 items-center justify-center'>
                                                         <Feather name={'plus'} size={24} color={'#FFF'} />
                                                     </Pressable>
                                                 </View>
-                                                <ButtonRemoveItem removeItem={() => removeItemFromCart(item.id)} />
+                                                <ButtonRemoveItem removeItem={() => removeItemFromCart(item.id_produto)} />
                                             </View>
                                             <View>
                                                 <Image
-                                                    source={{ uri: item.url_image }}
+                                                    source={{ uri: item.url_img }}
                                                     className='h-52 w-24'
                                                 />
                                             </View>

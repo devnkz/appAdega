@@ -32,7 +32,7 @@ export const BagProvider = ({ children }) => {
     }, []);
 
     const addToCart = async (produto: produtoProps) => {
-        const produtoInCart = cart.some(item => item.id === produto.id);
+        const produtoInCart = cart.some(item => item.id_produto === produto.id_produto);
         if (!produtoInCart) {
             const updatedCart = [...cart, produto];
             setCart(updatedCart);

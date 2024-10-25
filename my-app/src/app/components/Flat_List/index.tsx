@@ -4,7 +4,7 @@ import { Card_Produto } from "./Card_Produtos";
 import { Button_Menu } from "../button_menu";
 
 export interface produtoProps {
-    id: number,
+    id_produto: number,
     nome: String,
     tamanho: String,
     tipo: String,
