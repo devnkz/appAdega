@@ -5,12 +5,12 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useGlobalSearchParams } from 'expo-router';
-import { produtoProps } from '../../components/Flat_List';
-import { ButtonPay } from '../../components/ButtonPay';
-import { ButtonRemoveItem } from '../../components/buttonRemoveItem';
-import { BagProvider } from '../../components/contextBag';
+import { produtoProps } from '../components/Flat_List';
+import { ButtonPay } from '../components/ButtonPay';
+import { ButtonRemoveItem } from '../components/buttonRemoveItem';
+import { BagProvider } from '../components/contextBag';
 
-export default function User() {
+export default function Carrinho() {
     const router = useRouter();
     const { cart } = useGlobalSearchParams();
     const cartItems: produtoProps[] = typeof cart === 'string' ? JSON.parse(cart) : [];
@@ -40,7 +40,7 @@ export default function User() {
     };
 
     const handleLogin = () => {
-        router.push('../home');
+        router.replace('/Home');
     };
 
     return (

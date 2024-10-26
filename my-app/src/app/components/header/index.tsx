@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useBag } from '../contextBag';
 import { useEffect, useState } from 'react';
 import { router } from 'expo-router';
+import { useUser } from '@clerk/clerk-expo';
 
 export function Header() {
 
@@ -20,8 +21,7 @@ export function Header() {
         }
     }, [cart]);
 
-
-
+    const { user } = useUser();
 
     return (
         <>
@@ -30,7 +30,7 @@ export function Header() {
                 <View className='bg-black w-full h-full justify-around items-center flex-row p-4'>
                     <View className='flex justify-center'>
                         <Text className='text-white'>Olá</Text>
-                        <Text className='text-white'>Nyckolas!</Text>
+                        <Text className='text-white'>{user?.firstName}</Text>
                     </View>
                     <View className='flex flex-row gap-2 items-center'>
                         <Feather name={'map-pin'} size={24} color={'#fff'} />

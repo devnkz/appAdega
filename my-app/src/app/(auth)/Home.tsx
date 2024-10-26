@@ -1,16 +1,16 @@
 import { Text, ScrollView, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { SeachBar } from '../../components/searchBar';
-import { ListProdutos } from '../../components/Flat_List';
-import { Header } from '../../components/header';
-import { BagProvider } from '../../components/contextBag';
-import { Results_SeachBar } from '../../components/FlatList_ResultSearchBar';
-import { NotFoundSearch } from '../../components/pesquiseNotFound';
+import { SeachBar } from '../components/searchBar';
+import { ListProdutos } from '../components/Flat_List';
+import { Header } from '../components/header';
+import { BagProvider } from '../components/contextBag';
+import { Results_SeachBar } from '../components/FlatList_ResultSearchBar';
+import { NotFoundSearch } from '../components/pesquiseNotFound';
 
 
 
-const Home = () => {
+export default function Home (){
 
     //Alterar visibilidade quando clicar na SearchBar
     const [visible, setVisible] = useState(true)
@@ -111,7 +111,5 @@ const Home = () => {
                 </SafeAreaView>
             </SafeAreaProvider >
         </BagProvider>
-    )
-}
-
-export default Home;
+    );
+};

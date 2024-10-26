@@ -1,9 +1,10 @@
-import 'react-native-reanimated';
-import 'react-native-gesture-handler';
-import Login from './screens/login';
+import {View, ActivityIndicator} from 'react-native';
+
 
 export default function App() {
     return (
-        <Login/>
+        <View style={{flex:1 }} className='justify-center items-center' >
+            <ActivityIndicator size={40} color={"#121212"}/>
+        </View>
     )
 }
