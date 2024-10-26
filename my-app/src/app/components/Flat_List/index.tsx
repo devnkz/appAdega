@@ -9,7 +9,7 @@ export interface produtoProps {
     tamanho: String,
     tipo: String,
     modelo: String,
-    url_img: string,
+    img_url: string,
     quantidade: number
 }
 

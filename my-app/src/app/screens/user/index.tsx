@@ -88,7 +88,7 @@ export default function User() {
                                             </View>
                                             <View>
                                                 <Image
-                                                    source={{ uri: item.url_img }}
+                                                    source={{ uri: item.img_url }}
                                                     className='h-52 w-24'
                                                 />
                                             </View>

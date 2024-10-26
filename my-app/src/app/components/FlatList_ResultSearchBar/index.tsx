@@ -24,13 +24,13 @@ export function Results_SeachBar({ results }) {
             <FlatList
                 data={results}
                 scrollEnabled={false}
-                keyExtractor={(item) => item.id.toString()}
+                keyExtractor={(item) => item.id ? item.id.toString() : Math.random().toString()}
                 renderItem={({ item }) => (
                     <View className='w-full items-center mt-4'>
                         <View className='w-11/12 flex flex-row justify-between bg-white p-3 rounded-lg items-center' style={{ elevation: 10 }}>
                             <View>
                                 <Text className='text-3xl font-bold'>{item.nome}</Text>
-                                <Text>{item.tipo}</Text>
+                                <Text>{item.nome}</Text>
                                 <Text>{item.modelo}</Text>
                                 <Text>{item.tamanho}</Text>
                                 <Text className='text-3xl font-light text-green-600'>R$ {item.quantidade}</Text>
@@ -42,7 +42,7 @@ export function Results_SeachBar({ results }) {
                             </View>
                             <View>
                                 <Image
-                                    source={{ uri: item.url_img }}
+                                    source={{ uri: item.img_url }}
                                     className='h-52 w-24'
                                 />
                             </View>

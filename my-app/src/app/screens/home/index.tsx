@@ -102,7 +102,6 @@ const Home = () => {
                                 <>
                                     <Results_SeachBar results={results} />
                                     {ResultNotFound && (<NotFoundSearch text={'Item não encontrado!'} />)}
-
                                 </>
                             )}
 

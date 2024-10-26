@@ -24,7 +24,7 @@ export function Card_Produto({ produto } : { produto: produtoProps}) {
                 </View>
                 <View>
                     <Image
-                        source={{uri: produto.url_img}}
+                        source={{uri: produto.img_url}}
                         className='h-52 w-24'
                     />
                 </View>
