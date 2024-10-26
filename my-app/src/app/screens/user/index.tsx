@@ -48,8 +48,7 @@ export default function User() {
             <StatusBar backgroundColor='#D3D3D3' />
             <BagProvider>
                 <SafeAreaProvider>
-                    <SafeAreaView style={{ flex: 1, backgroundColor: '#d3d3d3' }}>
-                        <ButtonPay valorItem={cartItems.reduce((total, item) => total + (item.quantidade * (quantidades[item.id_produto] || 1.)), 0).toFixed(2)} />
+                    <SafeAreaView style={{ flex: 1, backgroundColor: '#d3d3d3', justifyContent: 'center', alignItems: 'center' }}>
                         <ScrollView>
                             <View className='w-full items-center h-36 justify-center flex-row gap-4'>
                                 <TouchableOpacity onPress={handleLogin}>
@@ -97,6 +96,7 @@ export default function User() {
                                 );
                             })}
                         </ScrollView>
+                        <ButtonPay valorItem={cartItems.reduce((total, item) => total + (item.quantidade * (quantidades[item.id_produto] || 1.)), 0).toFixed(2)} />
                     </SafeAreaView>
                 </SafeAreaProvider >
             </BagProvider>

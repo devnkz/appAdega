@@ -35,8 +35,7 @@ export function ListProdutos() {
 
     return (
         <>
-            <View
-                className='p-4 flex items-center'>
+            <View className="ml-5 mt-4 mb-4">
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     <Button_Menu onPress={() => setTipoProduto('produtos')} label={'Produtos'} activeCategory={tipoProduto} />
                     <Button_Menu onPress={() => setTipoProduto('cervejas')} label={'Cervejas'} activeCategory={tipoProduto} />
@@ -49,7 +48,7 @@ export function ListProdutos() {
                 data={produtos}
                 renderItem={({ item }) => (
                     <View>
-                        <Card_Produto produto={item}/>
+                        <Card_Produto produto={item} />
                     </View>
                 )}
                 contentContainerStyle={{ gap: 12 }}

@@ -97,14 +97,12 @@ const Home = () => {
                                         alterVisibleFalse();
                                     }} />
                             </View>
-
                             {buttonAlterVisible && (
                                 <>
                                     <Results_SeachBar results={results} />
                                     {ResultNotFound && (<NotFoundSearch text={'Item não encontrado!'} />)}
                                 </>
                             )}
-
                             {visible && (
                                 <ListProdutos />
                             )}
