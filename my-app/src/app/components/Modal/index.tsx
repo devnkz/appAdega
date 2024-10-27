@@ -50,6 +50,11 @@ export function ModalUser({ ModalVisible, onRequestClose, CloseModal }) {
                                 <Text className="font-bold text-xl text-white">Atualizar</Text>
                             </View>
                         </TouchableOpacity>
+                        <TouchableOpacity style={{width:300, marginTop: 12}}>
+                            <View className="flex justify-center items-center bg-red-600 p-2 rounded-md">
+                                <Text className="font-bold text-xl text-white">Sair</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
