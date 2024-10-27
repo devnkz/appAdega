@@ -1,4 +1,4 @@
-import { Text, ScrollView, View } from 'react-native';
+import { Text, ScrollView, View, Modal, Pressable, Alert } from 'react-native';
 import { useState, useEffect } from 'react';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { SeachBar } from '../components/searchBar';
@@ -7,16 +7,18 @@ import { Header } from '../components/header';
 import { BagProvider } from '../components/contextBag';
 import { Results_SeachBar } from '../components/FlatList_ResultSearchBar';
 import { NotFoundSearch } from '../components/pesquiseNotFound';
+import { ModalUser } from '../components/Modal';
 
 
 
-export default function Home (){
+export default function Home() {
 
     //Alterar visibilidade quando clicar na SearchBar
     const [visible, setVisible] = useState(true)
     const [buttonAlterVisible, setButtonAlterVisible] = useState(false)
     const [TypeIcon, setTypeIcon] = useState('search');
     const [ResultNotFound, setResultNotFound] = useState(false);
+    const [ModalVisible, setModalVisible] = useState(false)
 
     function alterVisibleFalse() {
         setVisible(false)
@@ -81,9 +83,16 @@ export default function Home (){
         <BagProvider>
             <SafeAreaProvider>
                 <SafeAreaView style={{ flex: 1, backgroundColor: '#d3d3d3' }}>
-                    <Header />
+                    <Header OpenModal={() => setModalVisible(true)} />
+
                     <ScrollView showsVerticalScrollIndicator={false}>
                         <>
+
+                            <ModalUser ModalVisible={ModalVisible} onRequestClose={() => {
+                                setModalVisible(!ModalVisible);
+                            }} CloseModal={() => setModalVisible(!ModalVisible)} />
+
+
                             {visible && (
                                 <>
                                     <Text className='text-3xl w-4/5 ml-6 mt-4 font-bold'>Somente as melhores, Bebidas matam sua sede</Text>
@@ -97,12 +106,14 @@ export default function Home (){
                                         alterVisibleFalse();
                                     }} />
                             </View>
+
                             {buttonAlterVisible && (
                                 <>
                                     <Results_SeachBar results={results} />
                                     {ResultNotFound && (<NotFoundSearch text={'Item não encontrado!'} />)}
                                 </>
                             )}
+
                             {visible && (
                                 <ListProdutos />
                             )}

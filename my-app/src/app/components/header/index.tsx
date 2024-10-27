@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Pressable } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { useBag } from '../contextBag';
@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { router } from 'expo-router';
 import { useUser } from '@clerk/clerk-expo';
 
-export function Header() {
+export function Header({OpenModal}) {
 
     const { cart, goToBag } = useBag();
     const [visible, setVisible] = useState(false);
@@ -28,10 +28,10 @@ export function Header() {
             <StatusBar backgroundColor='black' />
             <View className='flex justify-center w-full items-center h-28'>
                 <View className='bg-black w-full h-full justify-around items-center flex-row p-4'>
-                    <View className='flex justify-center'>
+                    <Pressable className='flex justify-center' onPress={OpenModal}>
                         <Text className='text-white'>Olá</Text>
                         <Text className='text-white'>{user?.firstName}</Text>
-                    </View>
+                    </Pressable>
                     <View className='flex flex-row gap-2 items-center'>
                         <Feather name={'map-pin'} size={24} color={'#fff'} />
                         <View>
